@@ -3,25 +3,264 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+
+  <!--GoogleFonts-->
+  <link rel ="preconnect" href="https://fonts.fonts-googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatics.com" crossorigin="">
+  <link href="https://fonts-googleapis.com/css2?family=Barlow+condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700& display= swap" rel="stylesheet"
+  >  
+
   <title>Frontend Mentor | Space tourism website</title>
+  <!--Our Custom CSS-->
+  <style>
+@import url('./header.css');
+
+
+/*set up the body*/
+body{
+  line-height: 1.15;
+  min-height: 100vh;
+  background-image:url(./assets/home/background-home-desktop.jpg) ;
+  
+}
+/*make images easier to work with*/
+img,picture{
+  max-width: 100%;
+  display:block;
+
+}
+
+  /* our CSS style*/
+  .hero {
+    margin-bottom: 5rem;
+}
+.hero-grid{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.hero__container {
+    width: 430px;
+}
+
+.hero__header {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    font-weight: 200;
+    color: var(--lightBlue);
+}
+
+.hero__title {
+    text-transform: uppercase;
+    font-size: 9rem;
+    font-family: 'Bellefair', serif;
+    font-weight: 200;
+}
+.hero__description{
+    font-size: 1.3rem;
+    line-height: 2rem;
+    text-align: justify;
+    color: var(--lightBlue);
+}
+
+.btn__explore{
+    width: 16rem;
+    height: 16rem;
+    display: block;
+    text-align: center;
+    line-height: 16rem;
+    border-radius: 15rem;
+    font-family: 'Bellefair', serif;
+    border-style: none;
+    cursor: pointer;
+    font-size: 2rem;
+    text-transform: uppercase;
+    background-color: var(--white);
+    color:var(--black);
+}
+
+.btn__explore:hover{
+    box-shadow: 10px 5px 10px 5px rgba(180, 180, 180, 0.3);
+    box-shadow: 0px 0px 0px 40px rgba(255, 255, 255, 0.145);
+    transition: all 0.3s ease-in;
+}
+/*essai*/
+
+dl {
+  display: flex;
+}
+
+dl div {
+  padding: 1rem;
+}
+
+dl dd {
+  margin: 0;
+  display: none;
+  font: var(--clr-white);
+}
+
+dl div:hover dd {
+  display: block;
+}
+
+
+
+@media screen and (max-width:768px) {
+    body{
+        height: auto;
+        background-image: url('./assets/home/background-home-tablet.jpg');
+    }
+    .hero {
+        margin: 2rem 0 4rem;
+    }
+    .hero-grid{
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .hero__container {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .hero__header {
+        font-size: 1.3rem;
+        letter-spacing: 3px;
+    }
+    .hero__title {
+        font-size: 9.5rem;
+    }
+    .hero__description{
+        width: 445px;
+        text-align: center;
+        margin: 0 auto 6rem;
+    }
+}
+@media screen and (max-width:620px) {
+    .hero {
+        margin: 2rem;
+    }
+    
+    .hero__header {
+        font-size: 2rem;
+        letter-spacing: 4px;
+    }
+    .hero__title {
+        font-size: 9rem;
+        margin: 1.2rem 0 1.7rem;
+    }
+    .hero__description{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:510px) {
+    body{
+        min-height: 100vh;
+        height: auto;
+        justify-content: center;
+        background-image: url('./assets/home/background-home-mobile.jpg');
+    }
+    .hero__header {
+        font-size: 1rem;
+        letter-spacing: 3px;
+    }
+    .hero__title {
+        font-size: 5rem;
+    }
+    .hero__description{
+        font-size: 1rem;
+        margin-bottom: 4rem;
+    }
+    .btn__explore{
+        width: 10rem;
+        height: 10rem;
+        line-height: 10rem;
+        font-size: 1rem;
+    }
+}
+    </style>
+
 </head>
 <body>
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
 
-  So, you want to travel to
-  Space
-  Let’s face it; if you want to go to space, you might as well genuinely go to 
-  outer space and not hover kind of on the edge of it. Well sit back, and relax 
-  because we’ll give you a truly out of this world experience!
+  <header class="header">
+    <nav class="header-grid"> 
+      <a href="./index.html" title="Home"><img src="./assets/shared/logo.svg" alt="logo"></a>
+      <div class="hamburger">
+        <img src="./assets/shared/icon-hamburger.svg" alt="icon-hamburger" id="hamburger">
+        <img src="./assets/shared/icon-close.svg" alt="icon-close" id="close">
+      </div>
+      <!--DESCRIPTIVE LIST-->
+      <dl class="menu" id="menu">
+        <div>
+              <dt class="menu__item">
+                <a href="#" class="selected"><strong>00</strong> Home</a>
+              </dt>
+        </div>
+        <div >
+              <dt class="menu__item">
+                <a href="./destination-moon.html"><strong>01</strong> Destination</a>
+              </dt>
+          <dd><a  href="./destination-moon.html "style= "color:white">Moon</a></dd>
+          <dd><a  href="./destination-mars.html "style= "color:white">Mars</a></dd>
+          <dd><a  href="./destination-europa.html"style= "color:white">Europa</a></dd>
+          <dd><a  href="./destination-titan.html "style= "color:white">Titan</a></dd>
+          
+        </div>
+        <div>
+              <dt class="menu__item">
+                <a href="./crew-commander.html"><strong>02</strong> Crew</a>
+              </dt>
+          <dd><a  href="./crew-commander.html "style= "color:white">Commander</a></dd>
+          <dd><a href="./crew-engineer.html"style= "color:white">Engineer</a></dd>
+          <dd><a href="./crew-pilot.html" style= "color:white">Pilot</a></dd>
+          <dd><a href="./crew-specialist.html" style= "color:white">Specialist</a></dd>
+        </div>
+        <div>
+              <dt class="menu__item">
+                <a href="./technology-spaceport.html"><strong>03</strong> Technology</a>
+              </dt>
+          <dd><a  href="./technology-capsule.html"style= "color:white" >Capsule</a></dd>
+          <dd><a  href="./technology-spaceport.html"style= "color:white" >Spacesport</a></dd>
+          <dd><a  href="./technology-vehicle.html"style= "color:white" >Vehicle</a></dd>
+       
+        </div>
+        </dl>
+      
+      
+    </nav>
 
-  Explore
+  </header >
+
+  <section class="hero">
+    <div class="wrapper">
+      <div class="hero-grid">
+        <article class="hero__container">
+          <header class="hero__header">So, you want to travel to</header>
+          <h1 class="hero__title">Space</h1>
+          <p class="hero__description">
+            Let’s face it; if you want to go to space, you might as well
+            genuinely go to outer space and not hover kind of on the edge of
+            it. Well sit back, and relax because we’ll give you a truly out of
+            this world experience!
+          </p>
+        </article>
+        <section class="explore">
+          <a href="./destination-moon.html" class="btn__explore"> Explore </a>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  
+  
 
 </body>
 </html>

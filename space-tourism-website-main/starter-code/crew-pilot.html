@@ -5,24 +5,308 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
+  <style>
+    @import url('./header.css');
+
+body {
+background-color: #0B0E17;
+background-image: url('./assets/crew/background-crew-desktop.jpg');
+}
+
+.wrapper {
+padding-bottom: 0;
+}
+
+.crew-grid {
+display: grid;
+grid-template-areas: 'header picture''info picture';
+margin: 0;
+}
+
+.crew__header {
+grid-area: header;
+}
+
+.crew__picture {
+grid-area: picture;
+justify-self: center;
+align-self: flex-end;
+margin-top: 4rem;
+}
+.crew__picture img {
+width: 400px;
+}
+.crew__container {
+grid-area: info;
+width: 600px;
+display: flex;
+flex-direction: column;
+}
+
+#picture, #title, #desc, #subtitle {
+transition: opacity .4s ease;
+}
+
+.header__subtitle {
+font-weight: 400;
+text-transform: uppercase;
+letter-spacing: 3px;
+font-size: 1.8rem;
+}
+
+.header__subtitle span {
+color: var(--veryDarkGray);
+font-weight: 600;
+margin-right: .8rem;
+}
+
+.crew__title {
+text-transform: uppercase;
+font-family: 'Bellefair', serif;
+font-size: 1.8rem;
+font-weight: 400;
+color: var(--darkGray);
+}
+
+.crew__subtitle {
+text-transform: uppercase;
+font-family: 'Bellefair', serif;
+font-size: 3.2rem;
+font-weight: 200;
+margin: 1rem 0 2rem;
+}
+
+.crew__description {
+width: 400px;
+color: var(--lightBlue);
+line-height: 1.6rem;
+letter-spacing: 0.76px;
+padding-bottom: 5rem;
+}
+
+.crew__menu ul {
+width: 100%;
+z-index: 5;
+}
+
+.crew__menu li {
+list-style-type: none;
+background-color: rgba(134, 134, 134, 0.246);
+width: 14px;
+height: 14px;
+border-radius: 50%;
+margin-right: 1.2rem;
+display: inline-block;
+cursor: pointer;
+
+}
+
+.hover:hover {
+background-color: var(--darkGray);
+}
+
+.crew__menu li.active {
+background-color: var(--white);
+}
+/*essai*/
+
+dl {
+  display: flex;
+}
+
+dl div {
+  padding: 1rem;
+}
+
+dl dd {
+  margin: 0;
+  display: none;
+  font: var(--clr-white);
+}
+
+dl div:hover dd {
+  display: block;
+}
+
+
+@media screen and (max-width:1024px) {
+body {
+    min-height: 100vh;
+    height: auto;
+    background-image: url('./assets/crew/background-crew-tablet.jpg');
+}
+
+.crew__picture img {
+    width: 400px;
+}
+
+.wrapper {
+    margin: 0 1rem;
+    padding: 0 2rem;
+}
+
+.crew__container {
+    width: 90%;
+    height: auto;
+    margin: 5rem 0 2rem;
+}
+}
+
+@media screen and (max-width:860px) {
+body {
+    background-image: url('./assets/crew/background-crew-mobile.jpg');
+}
+
+.wrapper {
+    margin: 0;
+    padding: 1rem 1rem 0;
+}
+
+.crew__header {
+    justify-self: flex-start;
+    padding-left: 2rem;
+}
+
+.crew-grid {
+    grid-template-areas: 'header''info''picture';
+    margin-bottom: 0;
+    justify-items: center;
+    justify-content: center;
+}
+
+.crew__container {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    flex-direction: column;
+}
+
+.crew__description {
+    width: 70%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.crew__menu {
+    margin-bottom: 0rem;
+    margin-top: 3rem;
+}
+}
+
+@media screen and (max-width:460px) {
+.wrapper{
+    padding: 0 1rem;
+}
+.crew-grid {
+    grid-template-areas: 'header''picture' 'info';
+}
+.crew__header {
+    justify-self: auto;
+    padding: 0;
+}
+.crew__picture img {
+    width: 300px;
+}
+.crew__container {
+    margin: 2rem 0;
+    flex-direction: column-reverse;
+}
+.crew__title {
+    margin-top: 1rem;
+}
+.crew__subtitle{
+    font-size: 2rem;
+} 
+.crew__description {
+    width: 100%;
+}
+}
+</style>
   <title>Frontend Mentor | Space tourism website</title>
 </head>
 <body>
+<header class="header">
+    <nav class="header-grid">
+      <a href="./index.html" title="Home">
+        <img src="./assets/shared/logo.svg" alt="logo" />
+      </a>
+      <div class="hamburger">
+        <img
+          src="./assets/shared/icon-hamburger.svg"
+          alt="icon-hamburger"
+          id="hamburger"
+        />
+        <img
+          src="./assets/shared/icon-close.svg"
+          alt="icon-close"
+          id="close"
+        />
+      </div>
+      <!--DESCRIPTIVE LIST-->
+      <dl class="menu" id="menu">
+        <div>
+              <dt class="menu__item">
+                <a href="index.html" class="selected"><strong>00</strong> Home</a>
+              </dt>
+        </div>
+        <div >
+              <dt class="menu__item">
+                <a href="./destination-moon.html"><strong>01</strong> Destination</a>
+              </dt>
+          <dd><a  href="./destination-moon.html "style= "color:white">Moon</a></dd>
+          <dd><a  href="./destination-mars.html "style= "color:white">Mars</a></dd>
+          <dd><a  href="./destination-europa.html"style= "color:white">Europa</a></dd>
+          <dd><a  href="./destination-titan.html "style= "color:white">Titan</a></dd>
+          
+        </div>
+        <div>
+              <dt class="menu__item">
+                <a href="./crew-commander.html"><strong>02</strong> Crew</a>
+              </dt>
+          <dd><a  href="./crew-commander.html "style= "color:white">Commander</a></dd>
+          <dd><a href="./crew-engineer.html"style= "color:white">Engineer</a></dd>
+          <dd><a href="./crew-pilot.html" style= "color:white">Pilot</a></dd>
+          <dd><a href="./crew-specialist.html" style= "color:white">Specialist</a></dd>
+        </div>
+        <div>
+              <dt class="menu__item">
+                <a href="./technology-spaceport.html"><strong>03</strong> Technology</a>
+              </dt>
+          <dd><a  href="./technology-capsule.html"style= "color:white" >Capsule</a></dd>
+          <dd><a  href="./technology-spaceport.html"style= "color:white" >Spacesport</a></dd>
+          <dd><a  href="./technology-vehicle.html"style= "color:white" >Vehicle</a></dd>
+       
+        </div>
+        </dl>
+      
+    </nav>
+  </header>
+  <section class="crew">
+    <div class="wrapper">
+      <div class="crew-grid">
+        <header class="crew__header">
+          <h2 class="header__subtitle"><span>02</span> Meet your crew</h2>
+        </header>
+        <article class="crew__container">
+          <div>
+            <h1 class="crew__title" id="title">Pilot</h1>
+            <h2 class="crew__subtitle" id="subtitle">Victor Glover</h2>
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
-
-  02 Meet your crew
-
-  Pilot
-  Victor Glover
-
-  Pilot on the first operational flight of the SpaceX Crew Dragon to the 
+            <p class="crew__description" id="desc">Pilot on the first operational flight of the SpaceX Crew Dragon to the 
   International Space Station. Glover is a commander in the U.S. Navy where 
   he pilots an F/A-18.He was a crew member of Expedition 64, and served as a 
-  station systems flight engineer. 
+  station systems flight engineer. </p>
+</div>
+<nav class="crew__menu">
+  <ul></ul>
+</nav>
+</article>
+<section class="crew__picture">
+  <img src="./assets/crew/image-victor-glover.png" alt="destination"
+    id="picture"class="opacity"/>
+</section>
+</div>
+</div>
+</section>
 </body>
 </html>

@@ -6,32 +6,328 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   
+  <style>
+
+    @import url('./header.css');
+body {
+  background-image: url('./assets/destination/background-destination-desktop.jpg');
+}
+
+.destination-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+}
+
+.destination__picture img {
+  width: 400px;
+}
+
+#picture, #title, #desc, #time, #distance {
+  transition: opacity .4s ease;
+}
+
+.destination__subtitle {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.8rem;
+  padding-bottom: 3rem;
+}
+
+.destination__subtitle span {
+  color: var(--veryDarkGray);
+  font-weight: 600;
+  margin-right: .8rem;
+}
+
+.destination__container {
+  width: 380px;
+  height: 400px;
+  margin-bottom: 2rem;
+}
+
+.destination__menu__item {
+  padding: 0 1rem 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  font-weight: 200;
+  color: var(--lightBlue);
+  cursor: pointer;
+}
+
+.hover:hover::after {
+  position: unset;
+  content: '';
+  width: 80%;
+  height: 3px;
+  background-color: var(--veryDarkGray);
+  display: block;
+  margin: 10px auto;
+}
+
+.destination__menu__item--active::after {
+  position: unset;
+  content: '';
+  width: 80%;
+  height: 3px;
+  background-color: var(--white);
+  display: block;
+  margin: 10px auto;
+}
+
+.destination__title {
+  text-transform: uppercase;
+  font-family: 'Bellefair', serif;
+  font-size: 6rem;
+  font-weight: 200;
+}
+
+.destination__description {
+  color: var(--lightBlue);
+  line-height: 1.6rem;
+  letter-spacing: 0.76px;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(208, 214, 249, 0.294);
+}
+
+.destination__info__container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.destination__info {
+  margin-top: 2rem;
+  text-transform: uppercase;
+}
+
+.info__title {
+  color: var(--lightBlue);
+  letter-spacing: 1.8px;
+  margin-bottom: .8rem;
+  display: block;
+  transition: opacity .4s ease;
+}
+
+.info__date {
+  font-family: 'Bellefair', serif;
+  display: block;
+  font-size: 1.75rem;
+}
+/*essai*/
+
+dl {
+  display: flex;
+}
+
+dl div {
+  padding: 1rem;
+}
+
+dl dd {
+  margin: 0;
+  display: none;
+  font: var(--clr-white);
+}
+
+dl div:hover dd {
+  display: block;
+}
+
+
+@media screen and (max-width:1024px) {
+  body{
+      height: auto;
+      background-image: url('./assets/destination/background-destination-tablet.jpg');
+  }
+  .wrapper{
+      margin: 0 1rem;
+      padding: 2rem 1rem 1rem;
+  }
+  .destination-grid {
+      align-items: unset;
+      flex-direction: column;
+      text-align: center;
+  }
+  .destination__picture{
+      position: relative;
+  }
+  .destination__picture img {
+      margin: 5rem auto 0;
+  }
+  
+  .destination__subtitle {
+      font-size: 1.5rem;
+      position: absolute;
+      top: 0;
+      left: 1.5rem;
+  }
+  .destination__container {
+      width: 500px;
+      margin: 3rem auto 1.5rem;
+  }
+  
+  .destination__info__container {
+      justify-content: space-evenly;
+  }
+}
+@media screen and (max-width:750px) {
+  .destination-grid {
+      align-items: center;
+  }
+  .destination__subtitle {
+      font-size: 1.8rem;
+      position: unset;
+  }
+  .destination__picture img {
+      margin: 0 auto;
+  }
+}
+@media screen and (max-width:560px) {
+  body{
+      min-height: 100vh;
+      height: auto;
+      background-image: url('./assets/destination/background-destination-mobile.jpg');
+  }
+  .wrapper{
+      margin: 0 auto;
+      padding: 2rem 1rem 1rem;
+  }
+  .destination__container {
+      width: 100%;
+      padding: 0 .5rem;
+      height: auto;
+  }
+  .destination__picture img {
+      width: 300px;
+  }
+  .destination__subtitle {
+      font-size: 1.3rem;
+  }
+  
+  .destination__title {
+      font-size: 5rem;
+  }
+  .destination__info__container {
+      flex-direction: column;
+      gap: .4rem;
+  }
+  
+}
+
+  </style>
+
   <title>Frontend Mentor | Space tourism website</title>
 </head>
 <body>
+<header class="header">
+  <nav class="header-grid">
+    <a href="./index.html" title="Home">
+      <img src="./assets/shared/logo.svg" alt="logo" />
+        </a>
+        <div class="hamburger">
+          <img src="./assets/shared/icon-hamburger.svg"
+            alt="icon-hamburger"
+            id="hamburger"
+          />
+          <img
+            src="./assets/shared/icon-close.svg"
+            alt="icon-close"
+            id="close"
+          />
+        </div>
+        <!--DESCRIPTIVE LIST-->
+      <dl class="menu" id="menu">
+        <div>
+              <dt class="menu__item">
+                <a href="index.html" class="selected"><strong>00</strong> Home</a>
+              </dt>
+        </div>
+        <div >
+              <dt class="menu__item">
+                <a href="./destination-moon.html"><strong>01</strong> Destination</a>
+              </dt>
+          <dd><a  href="./destination-moon.html "style= "color:white">Moon</a></dd>
+          <dd><a  href="./destination-mars.html "style= "color:white">Mars</a></dd>
+          <dd><a  href="./destination-europa.html"style= "color:white">Europa</a></dd>
+          <dd><a  href="./destination-titan.html "style= "color:white">Titan</a></dd>
+          
+        </div>
+        <div>
+              <dt class="menu__item">
+                <a href="./crew-commander.html"><strong>02</strong> Crew</a>
+              </dt>
+          <dd><a  href="./crew-commander.html "style= "color:white">Commander</a></dd>
+          <dd><a href="./crew-engineer.html"style= "color:white">Engineer</a></dd>
+          <dd><a href="./crew-pilot.html" style= "color:white">Pilot</a></dd>
+          <dd><a href="./crew-specialist.html" style= "color:white">Specialist</a></dd>
+        </div>
+        <div>
+              <dt class="menu__item">
+                <a href="./technology-spaceport.html"><strong>03</strong> Technology</a>
+              </dt>
+          <dd><a  href="./technology-capsule.html"style= "color:white" >Capsule</a></dd>
+          <dd><a  href="./technology-spaceport.html"style= "color:white" >Spacesport</a></dd>
+          <dd><a  href="./technology-vehicle.html"style= "color:white" >Vehicle</a></dd>
+       
+        </div>
+        </dl>
+        
+      </nav>
+    </header>
+    <section class="destination">
+      <div class="wrapper">
+        <div class="destination-grid">
+          <section class="destination__picture">
+            <h2 class="destination__subtitle">
+              <span>01</span> Pick your destination
+            </h2>
+            <img src="./assets/destination/image-mars.png" alt="destination"
+              id="picture"
+              class="opacity"
+            />
+          </section>
+          <article class="destination__container">
+            <header class="destination__header">
+              <nav>
+                <ul class="destination__menu">
+                  <li
+                    class="
+                      destination__menu__item destination__menu__item--active
+                    "><a href="./destination-moon.html" style= "color:white" >
+                    Moon</a>
+                  </li>
+                  <li class="destination__menu__item hover"><a href="./destination-moon.html" style= "color:white" >Mars</a></li>
+                  <li class="destination__menu__item hover"><a href="./destination-europa.html" style= "color:white">Europa</a></li>
+                  <li class="destination__menu__item hover"><a href="./destination-titan.html"style= "color:white">Titan</a></li>
+                </ul>
+              </nav>
+            </header>
+                  
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+            <h1 class="destination__title" id="title">Mars</h1>
 
-  01 Pick your destination
 
-  Moon
-  Mars
-  Europa
-  Titan
-
-  Mars
-
-  Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
+  <p class="destination__description" id="desc">Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
   the tallest planetary mountain in our solar system. It’s two and a half times 
-  the size of Everest!
-
-  Avg. distance
-  225 mil. km
-
-  Est. travel time
-  9 months
+  the size of Everest!</p>
+  <div class="destination__info__container">
+    <div class="destination__info">
+      <span class="info__title">
+  Avg. distance</span>
+  <span class="info__date" id="distance">225 mil. km</span>
+</div>
+<div class="destination__info">
+  <span class="info__title">
+  Est. travel time</span>
+  <span class="info__date" id="time">9 months</span>
+    </div>
+   </div>
+  </article>
+ </div>
+</div>
 </body>
 </html>
