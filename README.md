@@ -3,4 +3,5 @@ The [Space Tourism Multi-page Website](https://www.frontendmentor.io/challenges/
 I recommend this project to beginners who want to improve their knowledge of CSS. 
 JavaScript can also be added.
 
-![spaceTourism](https://user-images.githubusercontent.com/60264357/146374955-67ad0a2b-e225-4821-8154-6eaa3cdbf90a.jpg)
+
+![spaceTourism2](https://user-images.githubusercontent.com/60264357/146375456-f4556393-378e-4365-8c41-6772aa154e74.JPG)
